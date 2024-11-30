@@ -1,0 +1,13 @@
+import React from "react";
+
+const About = () => {
+  return (
+    <div>
+      <h1>About</h1>
+      <p>This is everything about CodeAlong.</p>
+      <p>Made by Anurag Badoni.</p>
+    </div>
+  );
+};
+
+export default About;
