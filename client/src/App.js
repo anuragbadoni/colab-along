@@ -1,16 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router } from "react-router-dom";
+import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Home from './components/Home';
+import EditorPage from './components/EditorPage';
+import { Toaster } from 'react-hot-toast';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <Router>
-    <App />
-  </Router>
-);
+function App() {
+  return (
+    <>
+    <div>
+      <Toaster  position='top-center'></Toaster>
+    </div>
+    <Routes>
+     <Route path='/' element={ <Home /> } />
+     <Route path='/editor/:roomId' element={ <EditorPage /> } />
+    </Routes>
+    </>
+  );
+}
 
-reportWebVitals();
+export default App;
