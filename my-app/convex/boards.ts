@@ -1,7 +1,6 @@
-import { v } from 'convex/values';
-import { getAllOrThrow } from 'convex-helpers/server/relationships';
-
-import { query } from '@/convex/_generated/server';
+import { v } from "convex/values";
+import { query } from "./_generated/server";
+import { getAllOrThrow } from "convex-helpers/server/relationships";
 
 export const get = query({
   args: {
@@ -10,22 +9,23 @@ export const get = query({
     favorites: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
+    console.log(ctx," i am here");
     const identity = await ctx.auth.getUserIdentity();
 
     if (!identity) {
-      throw new Error('Not authenticated');
+      throw new Error("Unauthorized");
     }
 
     if (args.favorites) {
-      const favoritedBoards = await ctx.db
-        .query('userFavorites')
-        .withIndex('by_user_org', (q) =>
-          q.eq('userId', identity.subject).eq('orgId', args.orgId)
+      const favoriteBoards = await ctx.db
+        .query("userFavorites")
+        .withIndex("by_user_org", (query) =>
+          query.eq("userId", identity.subject).eq("orgId", args.orgId)
         )
-        .order('desc')
+        .order("desc")
         .collect();
 
-      const ids = favoritedBoards.map((b) => b.boardId);
+      const ids = favoriteBoards.map((board) => board.boardId);
 
       const boards = await getAllOrThrow(ctx.db, ids);
 
@@ -35,41 +35,42 @@ export const get = query({
       }));
     }
 
-    const search = args.search?.toLowerCase();
-
+    const title = args.search as string;
     let boards = [];
 
-    if (search) {
+    if (title) {
+      // Query search index
       boards = await ctx.db
-        .query('boards')
-        .withSearchIndex('search_title', (q) =>
-          q.search('title', search).eq('orgId', args.orgId)
+        .query("boards")
+        .withSearchIndex("search_title", (query) =>
+          query.search("title", title).eq("orgId", args.orgId)
         )
         .collect();
     } else {
       boards = await ctx.db
-        .query('boards')
-        .withIndex('by_org', (q) => q.eq('orgId', args.orgId))
-        .order('desc')
+        .query("boards")
+        .withIndex("by_org", (query) => query.eq("orgId", args.orgId))
+        .order("desc")
         .collect();
     }
 
-    const boardsWithFavoriteRelation = boards.map(async (board) => {
-      const favorite = await ctx.db
-        .query('userFavorites')
-        .withIndex('by_user_board', (q) =>
-          q.eq('userId', identity.subject).eq('boardId', board._id)
+    const boardsWithFavoriteRelation = boards.map((board) => {
+      return ctx.db
+        .query("userFavorites")
+        .withIndex("by_user_board", (query) =>
+          query.eq("userId", identity.subject).eq("boardId", board._id)
         )
-        .unique();
-
-      return {
-        ...board,
-        isFavorite: !!favorite,
-      };
+        .unique()
+        .then((favorite) => {
+          return {
+            ...board,
+            isFavorite: !!favorite,
+          };
+        });
     });
 
-    const resolvedBoards = await Promise.all(boardsWithFavoriteRelation);
+    const boardsWithFavoriteBoolean = Promise.all(boardsWithFavoriteRelation);
 
-    return resolvedBoards;
+    return boardsWithFavoriteBoolean;
   },
 });

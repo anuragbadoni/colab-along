@@ -1,29 +1,23 @@
 'use client';
-
+import BoardList from '@/components/BoardList';
+import EmptyOrg from '@/components/EmptyOrg';
 import { useOrganization } from '@clerk/nextjs';
 
-import BoardList from '@/components/Dashbaord/BoardList/BoardList';
-import NoOrganization from '@/components/Dashbaord/NoOrganization';
+import { DashboardPageProps } from '@/types';
 
-interface DashboardPageProps {
-  searchParams: {
-    search?: string;
-    favorites?: string;
-  };
-}
-
-export default function DashboardPage({
-  searchParams,
-}: DashboardPageProps): JSX.Element {
+export default function Dashboard({ searchParams }: DashboardPageProps) {
   const { organization } = useOrganization();
 
   return (
-    <div className='flex h-[calc(100%-90px)] w-full flex-1 flex-col items-center justify-center gap-4 p-6'>
+    <main className='w-full px-5 flex-1 h-[calc(100%-80px)]'>
       {!organization ? (
-        <NoOrganization />
+        <EmptyOrg />
       ) : (
-        <BoardList orgId={organization.id} query={searchParams} />
+        <BoardList
+          orgId={organization.id}
+          query={searchParams}
+        />
       )}
-    </div>
+    </main>
   );
 }

@@ -1,0 +1,8 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/liveblocks-auth/route": "app/api/liveblocks-auth/route.js",
+  "/create-organization/[[...create-organization]]/page": "app/create-organization/[[...create-organization]]/page.js",
+  "/page": "app/page.js",
+  "/board/[boardId]/page": "app/board/[boardId]/page.js",
+  "/dashboard/page": "app/dashboard/page.js"
+}
