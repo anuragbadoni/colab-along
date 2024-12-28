@@ -149,7 +149,7 @@ export default function BoardCard({
 
 BoardCard.Skeleton = function BoardCardSkeleton() {
   return (
-    <div className='aspect-[100/127] rounded-lg overflow-hidden'>
+    <div className='aspect-[100/127] rounded-lg overflow-hidden bg-gray-800 '>
       <Skeleton className='h-full w-full animate-pulse duration-700' />
     </div>
   );
