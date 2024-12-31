@@ -4,15 +4,21 @@
       "workers": {
         "app/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fanuragbadoni%2FDesktop%2Fprojects%2Fcode-along%2Fmy-app%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions%2FinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!",
         "app/dashboard/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fanuragbadoni%2FDesktop%2Fprojects%2Fcode-along%2Fmy-app%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions%2FinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!",
-        "app/board/[boardId]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fanuragbadoni%2FDesktop%2Fprojects%2Fcode-along%2Fmy-app%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions%2FinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!"
+        "app/board/[boardId]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fanuragbadoni%2FDesktop%2Fprojects%2Fcode-along%2Fmy-app%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions%2FinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!",
+        "app/create-organization/[[...create-organization]]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fanuragbadoni%2FDesktop%2Fprojects%2Fcode-along%2Fmy-app%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions%2FinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!",
+        "app/_not-found/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fanuragbadoni%2FDesktop%2Fprojects%2Fcode-along%2Fmy-app%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions%2FinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!",
+        "app/organization-profile/[[...organization-profile]]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fanuragbadoni%2FDesktop%2Fprojects%2Fcode-along%2Fmy-app%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions%2FinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!"
       },
       "layer": {
         "app/page": "action-browser",
         "app/dashboard/page": "action-browser",
-        "app/board/[boardId]/page": "action-browser"
+        "app/board/[boardId]/page": "action-browser",
+        "app/create-organization/[[...create-organization]]/page": "action-browser",
+        "app/_not-found/page": "action-browser",
+        "app/organization-profile/[[...organization-profile]]/page": "action-browser"
       }
     }
   },
   "edge": {},
-  "encryptionKey": "x9fBzRk0vz6lY0EFPWztZX27O8C7RY+fIPh2BpBqHnA="
+  "encryptionKey": "BZbNb70RHsV8QaRK7lLPasiejCmcrpMjWmFqSnsvjmE="
 }

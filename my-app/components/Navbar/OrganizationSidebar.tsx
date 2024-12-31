@@ -58,18 +58,18 @@ export default function OrganizationSidebar() {
       />
       <div className='space-y-1 w-full'>
         <Button
-          variant={favorites ? 'ghost' : 'secondary'}
+          variant={favorites ? 'taskbarOffset' : 'taskbar'}
           asChild
           size='lg'
-          className='font-normal justify-start px-2 w-full'
+          className='font-normal justify-start px-2 w-full '
         >
           <Link href='/dashboard'>
-            <LayoutDashboard className='h-4 w-4 mr-2' />
+            <LayoutDashboard className='h-4 w-4 mr-2 ' />
             Team boards
           </Link>
         </Button>
         <Button
-          variant={favorites ? 'secondary' : 'ghost'}
+          variant={favorites ? 'taskbar' : 'taskbarOffset'}
           asChild
           size='lg'
           className='font-normal justify-start px-2 w-full'

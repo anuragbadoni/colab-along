@@ -157,7 +157,7 @@ export default function BoardList({ orgId, query }: BoardListProps) {
 
   return (
     <div>
-      <h2 className="text-3xl">
+      <h2 className="text-3xl ">
         {query.favorites ? "Favorite boards" : "Team boards"}
       </h2>
 
